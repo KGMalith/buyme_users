@@ -9,6 +9,6 @@ require('../models/index');
 let authRoutes = require('./auth_routes');
 
 //Define Routing paths
-router.use('/auth', authRoutes);
+router.use('/', authRoutes);
 
 module.exports = router;

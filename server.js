@@ -34,7 +34,7 @@ const corsOptions = {
     }
 };
 
-app.use('/api', cors(corsOptions), Routes);
+app.use('/', cors(corsOptions), Routes);
 
 //Import Port Number
 const PORT = process.env.APP_PORT;
