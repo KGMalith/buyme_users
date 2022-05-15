@@ -10,15 +10,9 @@ let mongoose = require('mongoose');
 //Import CORS
 let cors = require('cors');
 //Import Main Routes File
-let Routes = require('./app/mainRoute');
-
+let Routes = require('./app/routes/main_routes');
 //Create mongoose connection
-mongoose.connect(process.env.DB_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-    useCreateIndex: true
-});
+mongoose.connect(process.env.DB_URL);
 
 //make app use json
 app.use(express.json());
@@ -40,7 +34,7 @@ const corsOptions = {
     }
 };
 
-app.use('/api', cors(corsOptions), Routes);
+app.use('/', cors(corsOptions), Routes);
 
 //Import Port Number
 const PORT = process.env.APP_PORT;
