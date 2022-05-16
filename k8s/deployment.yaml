@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: buyme-users-k8s
+spec:
+  selector:
+    matchLabels:
+      app: buyme-users-k8s
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: buyme-users-k8s
+    spec:
+      containers:
+        - name: buyme-users-k8s
+          image: buymemain/users_image:latest
+          ports:
+            - containerPort: 4001
